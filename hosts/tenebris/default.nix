@@ -17,9 +17,18 @@
       ];
     };
 
+    cli = {
+			enableAll = true;
+
+			git = {
+				email = "32573897+mageowl@users.noreply.github.com";
+				name = "mageowl";
+				lazygit.enable = true;
+			};
+		};
+
     widgets.enable = true;
     kitty.enable = true;
-    cli.enableAll = true;
     nvim.enable = true;
     firefox.enable = true;
     _1password.enable = true;

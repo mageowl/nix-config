@@ -12,5 +12,8 @@ in {
 				core.editor = "nvim";
 			};
 		};
+		programs.lazygit = lib.mkIf opts.cli.git.lazygit.enable {
+			enable = true;
+		};
 	};
 }

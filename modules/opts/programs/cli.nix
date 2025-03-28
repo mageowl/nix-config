@@ -17,12 +17,13 @@
 				description = "Name to use for Git contributions.";
 				example = "mageowl";
 			};
-
 			defaultBranch = lib.mkOption {
 				description = "Default branch name for new repositories.";
 				default = "main";
 				example = "main";
 			};
+
+			lazygit.enable = lib.mkEnableOption "LazyGit helper";
 		};
   };
 }
