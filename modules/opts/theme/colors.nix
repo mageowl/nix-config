@@ -3,26 +3,27 @@
 		col = {
 			background = lib.mkOption {
 				description = "Background color for applications.";
-				example = lib.literalExpression ''util.hex "#000"'';
-				default = util.hex "#000";
+				example = lib.literalExpression ''util.hex "000"'';
+				default = util.hex "000";
 				type = util.types.color;
 			};
 			foreground = lib.mkOption {
 				description = "Default text color for applications.";
-				example = lib.literalExpression ''util.hex "#fff"'';
-				default = util.hex "#fff";
+				example = lib.literalExpression ''util.hex "fff"'';
+				default = util.hex "fff";
 				type = util.types.color;
 			};
+
 			accent1 = lib.mkOption {
 				description = "Accent color for applications.";
-				example = lib.literalExpression ''util.hex "#00f"'';
-				default = util.hex "#fff";
+				example = lib.literalExpression ''util.hex "00f"'';
+				default = util.hex "fff";
 				type = util.types.color;
 			};
 			accent2 = lib.mkOption {
 				description = "Secondary accent color for applications.";
-				example = lib.literalExpression ''util.hex "#08f"'';
-				default = util.hex "#fff";
+				example = lib.literalExpression ''util.hex "08f"'';
+				default = util.hex "fff";
 				type = util.types.color;
 			};
 		};
@@ -32,6 +33,20 @@
 			example = 0.6;
 			default = 1.0;
 			type = lib.types.float;
+		};
+		borderOpacity = {
+			inactive = lib.mkOption {
+				description = "Border transparency of windows and widgets.";
+				example = 0.6;
+				default = 1.0;
+				type = lib.types.float;
+			};
+			active = lib.mkOption {
+				description = "Border transparency of focused windows.";
+				example = 0.2;
+				default = 1.0;
+				type = lib.types.float;
+			};
 		};
 	};
 }

@@ -4,10 +4,10 @@ in {
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      monospace = [ opts.fonts.monospace ];
-      sansSerif = [ opts.fonts.sansSerif ];
-      serif = [ opts.fonts.serif ];
-      emoji = [ opts.fonts.emoji ];
+      monospace = [ opts.theme.fonts.monospace ];
+      sansSerif = [ opts.theme.fonts.sansSerif ];
+      serif = [ opts.theme.fonts.serif ];
+      emoji = [ opts.theme.fonts.emoji ];
     };
   };
 }

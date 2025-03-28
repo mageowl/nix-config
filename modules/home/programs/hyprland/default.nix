@@ -6,7 +6,7 @@ in {
     ./monitors.nix
     ./autostart.nix
     ./env.nix
-    #./appearance.nix
+    ./appearance.nix
     #./input.nix
     #./window-rules.nix
     #./plugins.nix

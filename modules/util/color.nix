@@ -1,16 +1,19 @@
-{ lib, ... }: {
+{ lib, ... }: 
+let
+	charAt = i: str: builtins.substring i (i + 1) str;
+in {
 	hex = hex:
 		if (builtins.stringLength hex) == 3 then 
 			let
-				r = lib.charAt 1 hex;
-				g = lib.charAt 2 hex;
-				b = lib.charAt 3 hex;
+				r = charAt 1 hex;
+				g = charAt 2 hex;
+				b = charAt 3 hex;
 				rr = r + r;
 				gg = g + g;
 				bb = b + b;
 			in {
 				_type = "color";
-				hex = "#${rr}${gg}${bb}";
+				hex = "${rr}${gg}${bb}";
 				r = lib.fromHexString rr;
 				g = lib.fromHexString gg;
 				b = lib.fromHexString bb;
@@ -18,9 +21,9 @@
 		else {
 			_type = "color";
 			inherit hex;
-			r = builtins.substring 1 3 hex |> lib.fromHexString;
-			g = builtins.substring 3 5 hex |> lib.fromHexString;
-			b = builtins.substring 5 7 hex |> lib.fromHexString;
+			r = builtins.substring 0 2 hex |> lib.fromHexString;
+			g = builtins.substring 2 4 hex |> lib.fromHexString;
+			b = builtins.substring 4 6 hex |> lib.fromHexString;
 		};
 	rgb = r: g: b: {
 		_type = "color";
