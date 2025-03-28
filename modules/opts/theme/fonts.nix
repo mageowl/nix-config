@@ -7,7 +7,7 @@ let
       type = lib.types.str;
     };
 in {
-  options.opts.fonts = {
+  options.opts.theme.fonts = {
     monospace = mkFontOption {
       kind = "monospace";
       default = "Roboto Mono";

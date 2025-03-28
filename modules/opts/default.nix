@@ -1,7 +1,7 @@
 { lib, ... }:
 
 {
-  imports = [ ./programs ./fonts.nix ];
+  imports = [ ./programs ./theme ];
 
   options = {
     opts = {

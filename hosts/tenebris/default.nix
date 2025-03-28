@@ -1,5 +1,7 @@
 { util, ... }: {
   opts = {
+		theme = import ./theme.nix util;
+
     hyprland = {
       enable = true;
 
