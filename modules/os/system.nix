@@ -15,6 +15,8 @@
       neovim
       home-manager
       nodejs_23
+	  unzip
+	  zip
     ];
     variables.FLAKE = "/home/${const.username}/nix/";
   };
