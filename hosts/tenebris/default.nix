@@ -67,6 +67,12 @@
 			lineSpacing = 2;
 		};
 
+		swww = {
+			enable = true;
+			wallpaperDir = ./wallpapers;
+			cycleEvery = "1h";
+		};
+
     widgets.enable = true;
     nvim.enable = true;
     firefox.enable = true;

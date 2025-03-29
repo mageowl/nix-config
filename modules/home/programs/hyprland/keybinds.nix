@@ -67,7 +67,7 @@ in {
         ''$mod SHIFT, G, exec, grim -g "$(slurp)" - | wl-copy''
       ])
       # Playerctl keybinds
-      ++ (lib.optionals opts.cli.playerctl.enable [
+      ++ (lib.optionals opts.cli.misc.enable [
         ",XF86AudioNext, exec, playerctl next"
         ",XF86AudioPlay, exec, playerctl play-pause"
         ",XF86AudioPrev, exec, playerctl prev"

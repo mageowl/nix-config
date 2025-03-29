@@ -10,7 +10,7 @@ in {
 				"col.inactive_border" = "rgba(${opts.theme.col.foreground.hex}${alpha opts.theme.borders.opacity.inactive})";
 				border_size = opts.theme.borders.width;
 
-				gaps_in = opts.theme.padding.small;
+				gaps_in = opts.theme.padding.medium / 2;
 				gaps_out = opts.theme.padding.big;
 
 				layout = opts.hyprland.layout;

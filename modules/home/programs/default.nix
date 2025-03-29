@@ -9,5 +9,6 @@
     ./kitty.nix
     ./fish.nix
     ./widgets.nix
+		./swww.nix
   ];
 }

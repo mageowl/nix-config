@@ -2,7 +2,6 @@
   options.opts.cli = {
     enableAll = lib.mkEnableOption "command line tools";
 
-    playerctl.enable = lib.mkEnableOption "playerctl";
     nh.enable = lib.mkEnableOption "Yet Another Nix Helper";
     grim.enable = lib.mkEnableOption "screenshot utilities";
     misc.enable = lib.mkEnableOption "miscellaneous command line tools";

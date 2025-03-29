@@ -16,6 +16,18 @@
     _1password.enable = lib.mkEnableOption "1Password";
     firefox.enable = lib.mkEnableOption "Firefox";
 
-    swww = { enable = lib.mkEnableOption "wallpapers"; };
+    swww = {
+			enable = lib.mkEnableOption "wallpapers";
+			wallpaperDir = lib.mkOption {
+				description = "Path to wallpapers.";
+				example = lib.literalExpression "./wallpapers";
+				type = lib.types.path;
+			};
+			cycleEvery = lib.mkOption {
+				description = "The delay at which to change wallpapers.";
+				example = lib.literalExpression "1h";
+				type = lib.types.str;
+			};
+		};
   };
 }

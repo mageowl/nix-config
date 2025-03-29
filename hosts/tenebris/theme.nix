@@ -11,7 +11,7 @@ util: {
 	rounding.big = 10;
 	rounding.small = 6;
 	padding.big = 24;
-	padding.medium = 14;
+	padding.medium = 16;
 	padding.small = 6;
 
 	fonts = {

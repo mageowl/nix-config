@@ -1,13 +1,12 @@
 { config, lib, ... }:
 let opts = config.opts;
 in {
-  imports = [ ./nh.nix ./misc.nix ./grim.nix ./playerctl.nix ./git.nix ];
+  imports = [ ./nh.nix ./misc.nix ./grim.nix ./git.nix ];
 
   config.opts.cli = lib.mkIf opts.cli.enableAll {
     nh.enable = true;
     grim.enable = true;
     misc.enable = true;
-    playerctl.enable = true;
 		git.enable = true;
   };
 }

@@ -22,7 +22,7 @@ in {
         inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
 			settings = {
-				dwindle.perserve_split = false;
+				dwindle.preserve_split = false;
 				misc.disable_hyprland_logo = true;
 			};
     };
