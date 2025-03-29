@@ -6,8 +6,8 @@
     ./neovim
     ./cli
     ./firefox
-    ./kitty.nix
-    ./fish.nix
+    ./kitty
+    ./fish
     ./widgets.nix
 		./swww.nix
   ];

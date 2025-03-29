@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 let opts = config.opts;
 in {
   config = lib.mkIf opts.kitty.enable {
@@ -42,7 +42,7 @@ in {
 				active_tab_foreground = "#" + opts.theme.col.foreground.hex;
 				inactive_tab_background = "#" + opts.theme.col.background.hex;
 				inactive_tab_foreground = "#" + opts.theme.col.foregroundDim.hex;
-			};
+			} // import ./colors.nix opts;
 
 			keybindings = {
 				"kitty_mod+enter" = "new_tab_with_cwd";

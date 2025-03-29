@@ -11,7 +11,10 @@ in {
 				border_size = opts.theme.borders.width;
 
 				gaps_in = opts.theme.padding.medium / 2;
-				gaps_out = opts.theme.padding.big;
+				gaps_out = if opts.widgets.enable
+					then with opts.theme.padding;
+						"${builtins.toString big} ${builtins.toString big} ${builtins.toString small} ${builtins.toString big}"
+					else opts.theme.padding.big;
 
 				layout = opts.hyprland.layout;
 			};

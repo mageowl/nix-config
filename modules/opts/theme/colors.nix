@@ -1,6 +1,11 @@
 { lib, util, ... }: {
 	options.opts.theme = {
-		col = {
+		col = let
+			mkColorOption = default: lib.mkOption {
+				default = util.hex default;
+				type = util.types.color;
+			};
+			in {
 			background = lib.mkOption {
 				description = "Background color for applications.";
 				example = lib.literalExpression ''util.hex "000"'';
@@ -32,6 +37,15 @@
 				default = util.hex "fff";
 				type = util.types.color;
 			};
+
+			red = mkColorOption "f38ba8";
+			orange = mkColorOption "eba0ac";
+			yellow = mkColorOption "f9e2af";
+			green = mkColorOption "a6e3a1";
+			cyan = mkColorOption "94e2d5";
+			blue = mkColorOption "89b4fa";
+			magenta = mkColorOption "cba6f7";
+			pink = mkColorOption "f5c2e7";
 		};
 
 		backgroundOpacity = lib.mkOption {

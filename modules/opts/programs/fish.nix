@@ -1,0 +1,5 @@
+{ lib, ... }: {
+	options.opts.fish = {
+		
+	};
+}

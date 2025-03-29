@@ -13,7 +13,10 @@
 			set -g __fish_git_prompt_color_stagedstate green
 			set -g __fish_git_prompt_showdirtystate 1
 			set -g fish_prompt_pwd_dir_length 0
-		'';
+		'' + (import ./colors.nix config.opts
+			|> builtins.mapAttrs (name: col: "set -g fish_color_${name} ${col}")
+			|> builtins.attrValues
+			|> builtins.concatStringsSep "\n");
 
 		functions = {
 			fish_command_not_found = ''
@@ -41,20 +44,24 @@
 				
 				set icon 󰈺
 				switch $cmd_name
-					case nv
+					case nv nvim vi
 						set icon 
-					case nvim
-						set icon 
+					case hx
+						set icon 
 					case cat
 						set icon 󰄛
+					case bat
+						set icon 󰭟
 					case sleep
 						set icon 󰒲
-					case npm
+					case npm node
 						set icon 
 					case live-server
 						set icon 
-					case cargo
+					case cargo rustc
 						set icon 
+					case nh nix nixos-rebuild home-manager nix-shell
+						set icon 
 				end
 				
 				if test (count $command) = 1

@@ -8,12 +8,13 @@ in {
     ./env.nix
     ./appearance.nix
 		./animation.nix
-    #./input.nix
+    ./input.nix
     #./window-rules.nix
     #./plugins.nix
   ];
 
   config = lib.mkIf opts.hyprland.enable {
+		home.packages = with pkgs; [ hyprpicker ];
     wayland.windowManager.hyprland = {
       enable = true;
       package =

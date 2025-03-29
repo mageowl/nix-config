@@ -1,4 +1,6 @@
 util: {
+	col.foreground = util.hex "cdd6f4";
+	col.foregroundDim = util.hex "7f849c";
 	col.accent1 = util.hex "f9a9d9";
 	col.accent2 = util.hex "f9a9d9";
 	backgroundOpacity = 0.6;
