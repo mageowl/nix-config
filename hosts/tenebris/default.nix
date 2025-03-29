@@ -65,6 +65,7 @@
     kitty = {
 			enable = true;
 			lineSpacing = 2;
+			modifier = "alt";
 		};
 
 		swww = {
@@ -87,6 +88,7 @@
 				"github"
 				"minecraft"
 				"backup"
+				"notes"
 			];
 		};
 

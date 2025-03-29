@@ -13,7 +13,7 @@ in {
 		xdg.userDirs = 
 		let
 			mkDir = prop: name:
-				lib.mkIf (prop != null) { ${name} = "${config.home.homeDirectory}/${prop}"; };
+				{ ${name} = if prop != null then "${config.home.homeDirectory}/${prop}" else null; };
 		in lib.mkMerge [
 				{
 					enable = true;
@@ -25,6 +25,8 @@ in {
 				(mkDir opts.directories.music "music")
 				(mkDir opts.directories.videos "videos")
 				(mkDir opts.directories.pictures "pictures")
+				(mkDir opts.directories.templates "templates")
+				(mkDir opts.directories.public "publicShare")
 			];
 	};
 }

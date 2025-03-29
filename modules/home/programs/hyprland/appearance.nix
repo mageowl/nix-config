@@ -22,6 +22,15 @@ in {
 					enabled = opts.hyprland.blur.enable;
 					inherit (opts.hyprland.blur) passes size xray noise vibrancy;
 				};
+
+				shadow = {
+					enabled = opts.hyprland.windowShadow.enable;
+					inherit (opts.hyprland.windowShadow)
+						range render_power sharp ignore_window scale;
+					offset = "${builtins.toString opts.hyprland.windowShadow.offset.x} ${builtins.toString opts.hyprland.windowShadow.offset.x}";
+					color = "rgb(${opts.hyprland.windowShadow.color.hex})";
+					color_inactive = "rgb(${opts.hyprland.windowShadow.color_inactive.hex})";
+				};
 			};
 		};
 	};

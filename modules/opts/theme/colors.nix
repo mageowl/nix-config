@@ -13,6 +13,12 @@
 				default = util.hex "fff";
 				type = util.types.color;
 			};
+			foregroundDim = lib.mkOption {
+				description = "Dim text color for applications.";
+				example = lib.literalExpression ''util.hex "ccc"'';
+				default = util.hex "ccc";
+				type = util.types.color;
+			};
 
 			accent1 = lib.mkOption {
 				description = "Accent color for applications.";

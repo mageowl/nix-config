@@ -11,6 +11,12 @@
 				example = 2;
 				type = lib.types.int;
 			};
+			modifier = lib.mkOption {
+				description = "Default modifier for shell keybindings.";
+				default = "ctrl+shift";
+				example = "alt";
+				type = lib.types.str;
+			};
 		};
 
     _1password.enable = lib.mkEnableOption "1Password";
@@ -27,7 +33,7 @@
 				description = "The delay at which to change wallpapers.";
 				example = lib.literalExpression "1h";
 				default = null;
-				type = lib.types.oneOf [ lib.types.str lib.types.null ];
+				type = lib.types.nullOr lib.types.str;
 			};
 		};
   };

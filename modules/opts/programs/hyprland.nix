@@ -56,6 +56,64 @@
 				type = lib.types.float;
 			};
 		};
+		windowShadow = {
+			enable = lib.mkEnableOption "shadows around windows";
+			range = lib.mkOption {
+				description = "Size of shadows.";
+				default = 4;
+				example = 4;
+				type = lib.types.int;
+			};
+			render_power = lib.mkOption {
+				description = "How sharp the shadows are.";
+				default = 3;
+				example = 3;
+				type = lib.types.int;
+			};
+			sharp = lib.mkOption {
+				description = "Enable this to give the effect of an infinite renderPower.";
+				default = false;
+				example = true;
+				type = lib.types.bool;
+			};
+			ignore_window = lib.mkOption {
+				description = "Whether or not to render behind windows.";
+				default = false;
+				example = true;
+				type = lib.types.bool;
+			};
+			offset.x = lib.mkOption {
+				description = "X offset of the shadows.";
+				default = 0.0;
+				example = 0.0;
+				type = lib.types.float;
+			};
+			offset.y = lib.mkOption {
+				description = "Y offset of the shadows.";
+				default = 0.0;
+				example = 0.0;
+				type = lib.types.float;
+			};
+			scale = lib.mkOption {
+				description = "Shadow scaling.";
+				default = 1.0;
+				example = 0.5;
+				type = lib.types.float;
+			};
+
+			color = lib.mkOption {
+				description = "Shadow color.";
+				default = util.hex "000";
+				example = lib.literalExpression ''util.hex "000"'';
+				type = util.types.color;
+			};
+			color_inactive = lib.mkOption {
+				description = "Shadow color when the window is not focused.";
+				default = util.hex "000";
+				example = lib.literalExpression ''util.hex "000"'';
+				type = util.types.color;
+			};
+		};
 
 		animation = {
 			enable = lib.mkEnableOption "Hyprland animations.";
@@ -65,6 +123,14 @@
 				type = lib.types.attrsOf util.types.hyprlandAnimation;
 			};
 		};
+
+		mouseSensitivity = lib.mkOption {
+			description = "How much to adjust mouse sensitivity. Ranges from -1 to 1.";
+			default = 0.0;
+			example = 0.5;
+			type = lib.types.float;
+		};
+		naturalScroll = lib.mkEnableOption "natural scrolling";
 
     monitors = lib.mkOption {
       description = "Monitor configuration for Hyprland.";

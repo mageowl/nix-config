@@ -1,5 +1,5 @@
 { const, ... }: {
-  imports = [ ./programs ./fonts.nix ./cursor.nix ];
+  imports = [ ./programs ./fonts.nix ./cursor.nix ./directories.nix ];
 
   home.username = const.username;
   home.homeDirectory = "/home/${const.username}";

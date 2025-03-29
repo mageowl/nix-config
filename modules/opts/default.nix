@@ -16,24 +16,25 @@
 						description = "Name of ${name} directory";
 						default = if defaultOn then name else null;
 						example = name;
-						type = lib.types.anyOf [ lib.types.str lib.types.null ];
+						type = lib.types.nullOr lib.types.str;
 					};
 				in {
-					enable = lib.mkOption {
-						description = "Enable creation of user directories like downloads, github, etc.";
-						downloads = mkDir "downloads" true;
-						documents = mkDir "documents" true;
-						desktop = mkDir "desktop" true;
-						music = mkDir "music" false;
-						videos = mkDir "videos" false;
-						pictures = mkDir "pictures" false;
-						temp = mkDir "temp" false;
-						extra = lib.mkOption {
-							description = "Extra directories to create.";
-							default = [ ];
-							example = [ "dir-one" "dir-two" ];
-							type = lib.types.listOf lib.types.str;
-						};
+					enable = lib.mkEnableOption "auto-created directories.";
+					downloads = mkDir "downloads" true;
+					documents = mkDir "documents" true;
+					desktop = mkDir "desktop" true;
+					music = mkDir "music" false;
+					videos = mkDir "videos" false;
+					pictures = mkDir "pictures" false;
+					public = mkDir "public" false;
+					templates = mkDir "templates" false;
+					temp = mkDir "temp" false;
+
+					extra = lib.mkOption {
+						description = "Extra directories to create.";
+						default = [ ];
+						example = [ "dir-one" "dir-two" ];
+						type = lib.types.listOf lib.types.str;
 					};
 				};
     };

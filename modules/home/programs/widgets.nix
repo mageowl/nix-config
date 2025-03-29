@@ -4,7 +4,13 @@ in {
   imports = [ ags.homeManagerModules.default ];
 
   config = lib.mkIf opts.widgets.enable {
-		home.packages = [ pkgs.astal.io ];
+		home.packages = [
+			pkgs.astal.io
+			(pkgs.writers.writeFishBin "reload_ags" ''
+				ags quit
+				hyprctl dispatch exec ags run
+			'')
+		];
     programs.ags = {
       enable = true;
       extraPackages = with ags.packages.${const.system}; [
