@@ -1,11 +1,21 @@
 { lib, ... }:
 let
   mkFontOption = { default, example, kind }:
-    lib.mkOption {
-      description = "Default ${kind} font.";
-      inherit default example;
-      type = lib.types.str;
-    };
+		{
+			family = lib.mkOption {
+				description = "Default ${kind} font.";
+				inherit default example;
+				type = lib.types.str;
+			};
+			features = lib.mkOption {
+				description = "Font features for ${kind} font.";
+				default = [ ];
+				example = lib.literalExpression ''
+					[ "ss01" "ss02" ]
+				'';
+				type = lib.types.listOf lib.types.str;
+			};
+		};
 in {
   options.opts.theme.fonts = {
     monospace = mkFontOption {
@@ -35,14 +45,12 @@ in {
 				example = 14;
 				type = lib.types.int;
 			};
-		};
-		features = lib.mkOption {
-			description = "Font features for monospace font.";
-			default = [ ];
-			example = lib.literalExpression ''
-				[ "ss01" "ss02" ]
-			'';
-			type = lib.types.listOf lib.types.str;
+			browser = lib.mkOption {
+				description = "Font size for Firefox.";
+				default = 14;
+				example = 14;
+				type = lib.types.int;
+			};
 		};
 		kerning = lib.mkOption {
 			description = "Modifies font kerning.";

@@ -17,8 +17,11 @@ util: {
 	padding.small = 6;
 
 	fonts = {
-		monospace = "JetBrains Mono";
-		features = [ "ss02" "cv14" "cv18" "cv20" ];
+		monospace = {
+			family = "JetBrains Mono";
+			features = [ "ss02" "cv14" "cv18" "cv20" ];
+		};
+		sansSerif.family = "Radio Canada Big";
 		kerning = 3;
 	};
 }

@@ -6,13 +6,13 @@ in {
 			enable = true;
 			
 			settings = let 
-				features = opts.theme.fonts.features |> builtins.map (f: "+${f}") |> builtins.concatStringsSep " ";
+				features = opts.theme.fonts.monospace.features |> builtins.map (f: "+${f}") |> builtins.concatStringsSep " ";
 			in {
 				# Fonts
-				font_family = ''family="${opts.theme.fonts.monospace}" style="Light" features="${features}"'';
-				bold_font = ''family="${opts.theme.fonts.monospace}" style="ExtraBold" features="${features}"'';
-				bold_italic_font = ''family="${opts.theme.fonts.monospace}" style="ExtraBold Italic" features="${features}"'';
-				italic_font = ''family="${opts.theme.fonts.monospace}" style="Italic" features="${features}"'';
+				font_family = ''family="${opts.theme.fonts.monospace.family}" style="Light" features="${features}"'';
+				bold_font = ''family="${opts.theme.fonts.monospace.family}" style="ExtraBold" features="${features}"'';
+				bold_italic_font = ''family="${opts.theme.fonts.monospace.family}" style="ExtraBold Italic" features="${features}"'';
+				italic_font = ''family="${opts.theme.fonts.monospace.family}" style="Italic" features="${features}"'';
 				font_size = opts.theme.fonts.size.terminal;
 
 				# Force Nerd Fonts symbols

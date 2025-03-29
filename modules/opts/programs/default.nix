@@ -19,8 +19,17 @@
 			};
 		};
 
+    firefox = {
+			enable = lib.mkEnableOption "Firefox";
+			monospaceFont = lib.mkOption {
+				description = "Use a monospace font instead of the sans serif one.";
+				default = false;
+				example = true;
+				type = lib.types.bool;
+			};
+		};
+
     _1password.enable = lib.mkEnableOption "1Password";
-    firefox.enable = lib.mkEnableOption "Firefox";
     vesktop.enable = lib.mkEnableOption "Vesktop";
     obsidian = {
 			enable = lib.mkEnableOption "Vesktop";
