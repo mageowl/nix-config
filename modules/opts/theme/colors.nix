@@ -34,7 +34,7 @@
 			default = 1.0;
 			type = lib.types.float;
 		};
-		borderOpacity = {
+		borders.opacity = {
 			inactive = lib.mkOption {
 				description = "Border transparency of windows and widgets.";
 				example = 0.6;

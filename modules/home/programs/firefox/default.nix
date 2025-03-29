@@ -8,6 +8,9 @@ in {
       enable = true;
       profiles.${const.username} = {
         extensions.packages = with addons; [ ublock-origin sponsorblock ];
+				settings = {
+					"extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+				};
       };
     };
   };

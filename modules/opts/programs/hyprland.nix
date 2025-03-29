@@ -9,6 +9,63 @@
       type = lib.types.int;
     };
 
+		layout = lib.mkOption {
+			description = "Window layout for Hyprland.";
+			default = "dwindle";
+			example = "dwindle";
+			type = lib.types.str;
+		};
+
+		blur = {
+			enable = lib.mkEnableOption "blurring behind windows";
+			size = lib.mkOption {
+				description = "Amount of blur. Adjust blur.passes as well.";
+				default = 8;
+				example = 8;
+				type = lib.types.int;
+			};
+			passes = lib.mkOption {
+				description = "Number of blur passes. Adjust blur.amount as well.";
+				default = 2;
+				example = 2;
+				type = lib.types.int;
+			};
+			xray = lib.mkOption {
+				description = "Enabling this means that transparent windows will always show through to the wallpaper.";
+				default = false;
+				example = true;
+				type = lib.types.bool;
+			};
+			special = lib.mkOption {
+				description = "Whether or not to blur the skrim behind special workspaces.";
+				default = false;
+				example = true;
+				type = lib.types.bool;
+			};
+
+			noise = lib.mkOption {
+				description = "Amount of noise.";
+				default = 0.0;
+				example = 0.2;
+				type = lib.types.float;
+			};
+			vibrancy = lib.mkOption {
+				description = "Encreases vibrancy of objects behind transparent windows.";
+				default = 0.0;
+				example = 0.2;
+				type = lib.types.float;
+			};
+		};
+
+		animation = {
+			enable = lib.mkEnableOption "Hyprland animations.";
+			anim = lib.mkOption {
+				description = "List of animations to override.";
+				default = { };
+				type = lib.types.attrsOf util.types.hyprlandAnimation;
+			};
+		};
+
     monitors = lib.mkOption {
       description = "Monitor configuration for Hyprland.";
       default = [ ];

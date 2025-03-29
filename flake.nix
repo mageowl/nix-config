@@ -11,7 +11,10 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
-    ags.url = "github:aylur/ags";
+    ags = {
+			url = "github:aylur/ags";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
     widgets = {
       #url = "github:mageowl/widgets";
       url = "path:/home/owl/github/widgets/";

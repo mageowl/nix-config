@@ -28,5 +28,27 @@ in {
       default = "Noto Color Emoji";
       example = "Noto Emoji";
     };
+		size = {
+			terminal = lib.mkOption {
+				description = "Font size for terminal.";
+				default = 11;
+				example = 14;
+				type = lib.types.int;
+			};
+		};
+		features = lib.mkOption {
+			description = "Font features for monospace font.";
+			default = [ ];
+			example = lib.literalExpression ''
+				[ "ss01" "ss02" ]
+			'';
+			type = lib.types.listOf lib.types.str;
+		};
+		kerning = lib.mkOption {
+			description = "Modifies font kerning.";
+			default = 0;
+			example = 3;
+			type = lib.types.int;
+		};
   };
 }

@@ -7,6 +7,7 @@ in {
     ./autostart.nix
     ./env.nix
     ./appearance.nix
+		./animation.nix
     #./input.nix
     #./window-rules.nix
     #./plugins.nix
@@ -19,6 +20,11 @@ in {
         inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       portalPackage =
         inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+
+			settings = {
+				dwindle.perserve_split = false;
+				misc.disable_hyprland_logo = true;
+			};
     };
   };
 }

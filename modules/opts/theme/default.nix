@@ -19,12 +19,16 @@
 				example = 14;
 				default = 0;
 			};
+			medium = lib.mkOption {
+				example = 14;
+				default = 0;
+			};
 			small = lib.mkOption {
 				example = 5;
 				default = 0;
 			};
 		};
-		borderWidth = lib.mkOption {
+		borders.width = lib.mkOption {
 			description = "Border width for windows and widgets.";
 			example = 2;
 			default = 1;
