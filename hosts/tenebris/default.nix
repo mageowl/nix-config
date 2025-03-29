@@ -50,6 +50,10 @@
 					};
 				};
 			};
+
+			plugin.dynamicCursors = {
+				enable = true;
+			};
     };
 
     cli = {
@@ -74,6 +78,11 @@
 			cycleEvery = "1h";
 		};
 
+		obsidian = {
+			enable = true;
+			opacity = 0.8;
+		};
+
 		directories = {
 			enable = true;
 
@@ -96,5 +105,6 @@
     nvim.enable = true;
     firefox.enable = true;
     _1password.enable = true;
+		vesktop.enable = true;
   };
 }

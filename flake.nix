@@ -10,6 +10,10 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
+		hypr-dynamic-cursors = {
+			url = "github:VirtCode/hypr-dynamic-cursors";
+			inputs.hyprland.follows = "hyprland";
+		};
 
     ags = {
 			url = "github:aylur/ags";

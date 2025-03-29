@@ -178,6 +178,22 @@
       example = { MY_ENV = "a string"; };
     };
 
+		plugin.dynamicCursors = {
+			enable = lib.mkEnableOption "hypr-dynamic-cursors plugin";
+			threshold = lib.mkOption {
+				description = "Threshold to enable animation";
+				default = 2;
+				example = 2;
+				type = lib.types.int;
+			};
+			enableShakeToFind = lib.mkOption {
+				description = "Whether shaking the cursor should make it get bigger.";
+				default = false;
+				example = true;
+				type = lib.types.bool;
+			};
+		};
+
     hypridle = { enable = lib.mkEnableOption "Hypridle"; };
     hyprlock = { enable = lib.mkEnableOption "Hyprlock"; };
   };

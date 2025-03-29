@@ -10,6 +10,7 @@ in {
 			libqalculate
 			playerctl
 			bat
+			btop
 		];
   };
 }

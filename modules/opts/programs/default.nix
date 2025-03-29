@@ -21,6 +21,16 @@
 
     _1password.enable = lib.mkEnableOption "1Password";
     firefox.enable = lib.mkEnableOption "Firefox";
+    vesktop.enable = lib.mkEnableOption "Vesktop";
+    obsidian = {
+			enable = lib.mkEnableOption "Vesktop";
+			opacity = lib.mkOption {
+				description = "Opacity of the entire Obsidian window.";
+				default = 1.0;
+				example = 0.8;
+				type = lib.types.float;
+			};
+		};
 
     swww = {
 			enable = lib.mkEnableOption "wallpapers";

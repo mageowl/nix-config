@@ -10,11 +10,15 @@ in {
 		./animation.nix
     ./input.nix
     ./window-rules.nix
-    #./plugins.nix
+    ./plugins.nix
   ];
 
   config = lib.mkIf opts.hyprland.enable {
-		home.packages = with pkgs; [ hyprpicker ];
+		home = {
+			packages = with pkgs; [ hyprpicker ];
+			sessionVariables.NIXOS_OZONE_WL = "1";
+		};
+
     wayland.windowManager.hyprland = {
       enable = true;
       package =
