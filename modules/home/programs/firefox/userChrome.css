@@ -1,0 +1,15 @@
+:root {
+	background: var(--nix-background) !important;
+	font: var(--nix-font) !important;
+	color: var(--nix-color) !important;
+
+	--tabpanel-background-color: transparent !important;
+	--tab-selected-shadow: none !important;
+	--toolbox-bgcolor: transparent !important;
+}
+
+#navigator-toolbox,
+.titlebar-buttonbox-container {
+	background: none !important;
+}
+

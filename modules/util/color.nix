@@ -11,23 +11,26 @@ in {
 				rr = r + r;
 				gg = g + g;
 				bb = b + b;
-			in {
+			in rec {
 				_type = "color";
 				hex = "${rr}${gg}${bb}";
 				r = lib.fromHexString rr;
 				g = lib.fromHexString gg;
 				b = lib.fromHexString bb;
+				rgb = "${builtins.toString r}, ${builtins.toString g}, ${builtins.toString b}";
 			}
-		else {
+		else rec {
 			_type = "color";
 			inherit hex;
 			r = builtins.substring 0 2 hex |> lib.fromHexString;
 			g = builtins.substring 2 2 hex |> lib.fromHexString;
 			b = builtins.substring 4 2 hex |> lib.fromHexString;
+			rgb = "${builtins.toString r}, ${builtins.toString g}, ${builtins.toString b}";
 		};
 	rgb = r: g: b: {
 		_type = "color";
 		inherit r g b;
 		hex = builtins.map lib.toHexString [ r g b ] |> builtins.concatStringsSep "";
+		rgb = "${builtins.toString r}, ${builtins.toString g}, ${builtins.toString b}";
 	};
 }

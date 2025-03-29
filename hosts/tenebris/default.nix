@@ -83,6 +83,11 @@
 			opacity = 0.8;
 		};
 
+		firefox = {
+			enable = true;
+			monospaceFont = true;
+		};
+
 		directories = {
 			enable = true;
 
@@ -103,7 +108,6 @@
 
     widgets.enable = true;
     nvim.enable = true;
-    firefox.enable = true;
     _1password.enable = true;
 		vesktop.enable = true;
   };
