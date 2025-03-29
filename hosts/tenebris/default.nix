@@ -110,5 +110,6 @@
     nvim.enable = true;
     _1password.enable = true;
 		vesktop.enable = true;
+		prismLauncher.enable = true;
   };
 }

@@ -10,6 +10,7 @@ in {
     ./fish
     ./widgets.nix
 		./swww.nix
+		./prismLauncher.nix
   ];
 
 	config = {

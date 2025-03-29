@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ lib, config, ... }: {
   imports = [ ./hyprland.nix ./cli.nix ./widgets.nix ./neovim.nix ];
 
   options.opts = {
@@ -26,6 +26,16 @@
 				default = false;
 				example = true;
 				type = lib.types.bool;
+			};
+		};
+
+		prismLauncher = {
+			enable = lib.mkEnableOption "Prism Launcher";
+			instancesDirectory = lib.mkOption {
+				description = "Where to put the instances folder.";
+				default = "${config.home.homeDirectory}/minecraft/instances";
+				example = "/home/nixos-user/minecraft/instances";
+				type = lib.types.str;
 			};
 		};
 

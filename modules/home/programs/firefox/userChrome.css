@@ -6,10 +6,23 @@
 	--tabpanel-background-color: transparent !important;
 	--tab-selected-shadow: none !important;
 	--toolbox-bgcolor: transparent !important;
+	--toolbox-bgcolor-inactive: transparent !important;
 }
 
-#navigator-toolbox,
-.titlebar-buttonbox-container {
+#navigator-toolbox {
 	background: none !important;
 }
+toolbarbutton#sidebar-button,
+.titlebar-buttonbox-container,
+toolbarspring#vertical-spacer {
+	display: none !important;
+}
+
+tabbox#tabbrowser-tabbox {
+	box-shadow: none !important;
+	outline: none !important;
+	border-radius: var(--nix-rounding-small);
+	overflow: hidden;
+}
+
 

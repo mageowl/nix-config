@@ -29,6 +29,7 @@ in {
 			settings = {
 				dwindle.preserve_split = true;
 				misc.disable_hyprland_logo = true;
+				misc.focus_on_activate = true;
 			};
     };
   };

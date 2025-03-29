@@ -19,7 +19,7 @@
 
 		functions = {
 			fish_command_not_found = ''
-				echo "Unknown command '$argv[0]'".
+				echo "Unknown command '$argv[1]'".
 			'';
 			fish_prompt = ''
 				set color (set_color 93cee9)

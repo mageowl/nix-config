@@ -29,6 +29,8 @@ in {
 								|> builtins.map (f: ''"${f}"'')
 								|> builtins.concatStringsSep ", "
 						};
+						--nix-rounding-small: ${builtins.toString rounding.small}px;
+						--nix-padding-small: ${builtins.toString padding.small}px;
 					}
 				'' + builtins.readFile ./userChrome.css;
       };
