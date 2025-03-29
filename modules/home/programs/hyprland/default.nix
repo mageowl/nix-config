@@ -9,7 +9,7 @@ in {
     ./appearance.nix
 		./animation.nix
     ./input.nix
-    #./window-rules.nix
+    ./window-rules.nix
     #./plugins.nix
   ];
 
