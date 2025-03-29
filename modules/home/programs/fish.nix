@@ -4,6 +4,17 @@
 	programs.fish = {
 		enable = true;
 
+		interactiveShellInit = ''
+			set -g __fish_git_prompt_char_dirtystate 󰝒
+			set -g __fish_git_prompt_char_stagedstate 
+			set -g __fish_git_prompt_char_suffix " "
+			set -g __fish_git_prompt_color_dirtystate yellow
+			set -g __fish_git_prompt_color_prefix \x2dd
+			set -g __fish_git_prompt_color_stagedstate green
+			set -g __fish_git_prompt_showdirtystate 1
+			set -g fish_prompt_pwd_dir_length 0
+		'';
+
 		functions = {
 			fish_command_not_found = ''
 				echo "Unknown command '$argv[0]'".
