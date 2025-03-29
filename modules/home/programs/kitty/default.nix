@@ -23,7 +23,7 @@ in {
 				background_opacity = opts.theme.backgroundOpacity;
 
 				# Padding
-				window_padding_width = opts.theme.padding.big + "px";
+				window_padding_width = opts.theme.padding.big;
 
 				# Set window size for floating windows
 				initial_window_width = 640;
