@@ -113,5 +113,6 @@
     };
 
     hypridle = { enable = lib.mkEnableOption "Hypridle"; };
+    hyprlock = { enable = lib.mkEnableOption "Hyprlock"; };
   };
 }

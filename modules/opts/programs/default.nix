@@ -26,7 +26,8 @@
 			cycleEvery = lib.mkOption {
 				description = "The delay at which to change wallpapers.";
 				example = lib.literalExpression "1h";
-				type = lib.types.str;
+				default = null;
+				type = lib.types.oneOf [ lib.types.str lib.types.null ];
 			};
 		};
   };

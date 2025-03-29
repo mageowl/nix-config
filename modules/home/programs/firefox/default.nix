@@ -10,6 +10,8 @@ in {
         extensions.packages = with addons; [ ublock-origin sponsorblock ];
 				settings = {
 					"extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+					"browser.download.dir" =
+						"/home/${const.username}/" + (if opts.directories.enable && opts.directories.downloads != null then opts.directories.downloads else "Downloads");
 				};
       };
     };

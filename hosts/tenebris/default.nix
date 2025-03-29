@@ -73,6 +73,23 @@
 			cycleEvery = "1h";
 		};
 
+		directories = {
+			enable = true;
+
+			downloads = "downloads";
+			documents = "random";
+			desktop = null;
+			music = "music";
+			videos = "recordings";
+			extra = [
+				"art"
+				"godot"
+				"github"
+				"minecraft"
+				"backup"
+			];
+		};
+
     widgets.enable = true;
     nvim.enable = true;
     firefox.enable = true;
