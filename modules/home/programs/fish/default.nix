@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, ... }:
 let opts = config.opts;
 in {
 	home.shell.enableFishIntegration = true;
@@ -15,7 +15,7 @@ in {
 			set -g __fish_git_prompt_color_stagedstate green
 			set -g __fish_git_prompt_showdirtystate 1
 			set -g fish_prompt_pwd_dir_length 0
-		'' + (import ./colors.nix config.opts
+		'' + (import ./colors.nix opts
 			|> builtins.mapAttrs (name: col: "set -g fish_color_${name} ${col}")
 			|> builtins.attrValues
 			|> builtins.concatStringsSep "\n");
@@ -25,15 +25,12 @@ in {
 				echo "Unknown command '$argv[0]'".
 			'';
 			fish_prompt = ''
-        set_color 363a4f
-        string repeat (tput cols) ─
-
         set cwd (prompt_pwd | string split "/")
         if set -q cwd[-2]
         	set cwd[-2] "$cwd[-2]/"
         end
 
-        echo -n "$(set_color 93cee9)󰉋$(set_color normal)$(set_color -i) $cwd[-2]$color$cwd[-1]$(set_color normal) ) "
+        echo -n "$(set_color 93cee9)󰉋$(set_color normal)$(set_color -i) $cwd[-2]$(set_color 93cee9)$cwd[-1]$(set_color normal) ) "
       '';
 			fish_right_prompt = ''
 				fish_git_prompt | string replace ')' "" | string replace '(' '( 󰘬 '

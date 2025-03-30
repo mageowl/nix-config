@@ -3,11 +3,9 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   opts = config.opts;
-in
-{
+in {
   config = lib.mkIf opts.swww.enable {
     services.swww.enable = true;
     home.file."${config.xdg.configHome}/wallpapers" = {
@@ -23,26 +21,24 @@ in
           ExecStart = builtins.toString (
             pkgs.writers.writeFish "cycle_wallpaper" (
               ''
-                							set img (random choice ${opts.swww.wallpaperDir}/*)
-                							swww img $img
-                						''
+                set img (random choice ${opts.swww.wallpaperDir}/*)
+                swww img $img
+              ''
               + (
-                if opts.hyprland.hyprlock.enable then
-                  ''
-                    								echo \
-                    								"background
-                    									path = $img
-                    									blur_passes = 2
-                    								}" > /tmp/hyprlock-bg.conf
-                    							''
-                else
-                  ""
+                if opts.hyprland.hyprlock.enable
+                then ''
+                  echo \
+                  "background
+                  	path = $img
+                  	blur_passes = 2
+                  }" > /tmp/hyprlock-bg.conf
+                ''
+                else ""
               )
             )
           );
-          RemainAfterExit = true;
         };
-        Install.WantedBy = [ "default.target" ];
+        Install.WantedBy = ["default.target"];
       };
       timers.cycle_wallpaper = {
         Unit.Description = "refresh wallpaper at a set interval.";
@@ -50,7 +46,7 @@ in
           Unit = "cycle_wallpaper.service";
           OnUnitActiveSec = opts.swww.cycleEvery;
         };
-        Install.WantedBy = [ "timers.target" ];
+        Install.WantedBy = ["timers.target"];
       };
     };
   };

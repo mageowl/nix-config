@@ -19,7 +19,7 @@ toolbarspring#vertical-spacer {
 }
 
 tabbox#tabbrowser-tabbox {
-	padding: var(--nix-padding-small);
+	padding: 0 var(--nix-padding-small) var(--nix-padding-small) 0;
 	box-shadow: none !important;
 	outline: none !important;
 	
@@ -29,4 +29,14 @@ tabbox#tabbrowser-tabbox {
 	}
 }
 
+/* Center urlbar */
+toolbaritem#urlbar-container {
+	max-width: 1000px;
+}
+toolbarspring {
+	max-width: unset !important;
+}
 
+button-group.tools-and-extensions {
+	display: none;
+}

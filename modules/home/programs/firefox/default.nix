@@ -15,6 +15,10 @@ in {
 						then opts.directories.downloads
 						else "Downloads");
 					"browser.tabs.allow_transparent_browser" = true;
+					"sidebar.verticalTabs" = true;
+					"browser.uiCustomization.navBarWhenVerticalTabs" = ''
+						["sidebar-button","back-button","forward-button","stop-reload-button","vertical-spacer","urlbar-container","downloads-button","unified-extensions-button"]
+					'';
 					"devtools.debugger.remote-enabled" = true;
 					"devtools.chrome.enabled" = true;
 					"toolkit.legacyUserProfileCustomizations.stylesheets" = true;

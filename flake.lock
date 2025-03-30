@@ -792,8 +792,8 @@
     "widgets": {
       "flake": false,
       "locked": {
-        "lastModified": 1743202120,
-        "narHash": "sha256-LTnad8QVPd5QH85CCxQPvzZKFK8Utr3jND4nqqoIQC4=",
+        "lastModified": 1743365519,
+        "narHash": "sha256-4enF9uE77iNtMqSAsjDOO12UyWrl3Rc1PUii1X/+5Bc=",
         "path": "/home/owl/github/widgets/",
         "type": "path"
       },

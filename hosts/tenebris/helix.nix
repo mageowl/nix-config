@@ -16,6 +16,12 @@
 
       indent-guides.render = true;
     };
+    keys.insert = {
+      C-h = "move_char_left";
+      C-j = "move_visual_line_down";
+      C-k = "move_visual_line_up";
+      C-l = "move_char_right";
+    };
   };
   themes = {
     catppuccin_transparent = {
