@@ -1,5 +1,5 @@
 { lib, config, ... }: {
-  imports = [ ./hyprland.nix ./cli.nix ./widgets.nix ./neovim.nix ];
+  imports = [ ./hyprland.nix ./cli.nix ./widgets.nix ./helix.nix ./fish.nix ];
 
   options.opts = {
     kitty = {

@@ -3,7 +3,7 @@ let opts = config.opts;
 in {
   imports = [
     ./hyprland
-    ./neovim
+    ./helix
     ./cli
     ./firefox
     ./kitty

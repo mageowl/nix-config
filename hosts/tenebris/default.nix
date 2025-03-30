@@ -107,7 +107,7 @@
 		};
 
     widgets.enable = true;
-    nvim.enable = true;
+    helix = import ./helix.nix;
     _1password.enable = true;
 		vesktop.enable = true;
 		prismLauncher.enable = true;

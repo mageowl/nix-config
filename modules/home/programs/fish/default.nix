@@ -1,4 +1,6 @@
-{ config, lib, ... }: {
+{ config, lib, ... }:
+let opts = config.opts;
+in {
 	home.shell.enableFishIntegration = true;
 
 	programs.fish = {
@@ -70,6 +72,6 @@
 				
 				echo $icon $command
 			'';
-		};
+		} // opts.fish.functions;
 	};
 }
