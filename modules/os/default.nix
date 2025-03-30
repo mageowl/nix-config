@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   imports = [
     ./network.nix
     ./system.nix
@@ -6,6 +7,7 @@
     ./locale.nix
     ./hyprland.nix
     ./fonts.nix
-		./1password.nix
+    ./1password.nix
+    ./xremap.nix
   ];
 }

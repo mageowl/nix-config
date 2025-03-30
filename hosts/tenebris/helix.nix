@@ -8,6 +8,13 @@
       cursor-shape.insert = "bar";
       color-modes = true;
       bufferline = "always";
+
+      end-of-line-diagnostics = "hint";
+      inline-diagnostics = {
+        cursor-line = "hint";
+      };
+
+      indent-guides.render = true;
     };
   };
   themes = {
@@ -18,12 +25,38 @@
       "ui.popup".fg = "overlay2";
       "ui.window".fg = "surface1";
       "ui.menu".fg = "overlay2";
-      "ui.menu.selected".bg = "surface1";
-      "ui.menu.selected".fg = "surface1";
+      "ui.menu.selected" = {
+        bg = "surface1";
+        fg = "text";
+        bold = true;
+      };
       "ui.help".fg = "overlay2";
+      "ui.statusline".fg = "subtext1";
+      "ui.statusline.inactive".fg = "subtext1";
+      "ui.bufferline".fg = "subtext1";
 
-      palette.overlay2 = "#9399b2";
-      palette.surface1 = "#45475a";
+      "variable.other.member" = "lavender";
+
+      palette = {
+        text = "#cdd6f4";
+        subtext1 = "#b4befe";
+        overlay2 = "#9399b2";
+        surface1 = "#45475a";
+        lavender = "#b4befe";
+      };
     };
   };
+  languages = [
+    {
+      name = "nix";
+      formatter = {
+        command = "alejandra";
+        args = [
+          "-q"
+          "-"
+        ];
+      };
+      auto-format = true;
+    }
+  ];
 }

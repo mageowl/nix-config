@@ -1,6 +1,8 @@
-{ util, ... }: {
+{ util, ... }:
+{
   opts = {
-		theme = import ./theme.nix util;
+    user.name = "owen";
+    theme = import ./theme.nix util;
 
     hyprland = {
       enable = true;
@@ -18,98 +20,114 @@
         })
       ];
 
-			blur = {
-				enable = true;
-				size = 8;
-				passes = 2;
-				xray = true;
+      blur = {
+        enable = true;
+        size = 8;
+        passes = 2;
+        xray = true;
 
-				noise = 0.2;
-				vibrancy = 0.2;
-			};
+        noise = 0.2;
+        vibrancy = 0.2;
+      };
 
-			animation = {
-				enable = true;
+      animation = {
+        enable = true;
 
-				anim = {
-					windows = util.mkAnimation {
-						duration = 7;
-						curve = "custom";
-					};
-					windowsOut = util.mkAnimation {
-						duration = 7;
-						style = "popin 50%";
-					};
-					border = util.mkAnimation { duration = 5; };
-					borderangle = util.mkAnimation { duration = 8; };
-					fade = util.mkAnimation { duration = 7; };
-					workspaces = util.mkAnimation { duration = 6; };
-					specialWorkspace = util.mkAnimation {
-						duration = 6;
-						style = "fade";
-					};
-				};
-			};
+        anim = {
+          windows = util.mkAnimation {
+            duration = 7;
+            curve = "custom";
+          };
+          windowsOut = util.mkAnimation {
+            duration = 7;
+            style = "popin 50%";
+          };
+          border = util.mkAnimation { duration = 5; };
+          borderangle = util.mkAnimation { duration = 8; };
+          fade = util.mkAnimation { duration = 7; };
+          workspaces = util.mkAnimation { duration = 6; };
+          specialWorkspace = util.mkAnimation {
+            duration = 6;
+            style = "fade";
+          };
+        };
+      };
 
-			plugin.dynamicCursors = {
-				enable = true;
-			};
+      plugin.dynamicCursors = {
+        enable = true;
+      };
     };
 
     cli = {
-			enableAll = true;
+      enableAll = true;
 
-			git = {
-				email = "32573897+mageowl@users.noreply.github.com";
-				name = "mageowl";
-				lazygit.enable = true;
-			};
-		};
+      git = {
+        email = "32573897+mageowl@users.noreply.github.com";
+        name = "mageowl";
+        lazygit.enable = true;
+      };
+    };
 
     kitty = {
-			enable = true;
-			lineSpacing = 2;
-			modifier = "alt";
-		};
+      enable = true;
+      lineSpacing = 2;
+      modifier = "alt";
+    };
 
-		swww = {
-			enable = true;
-			wallpaperDir = ./wallpapers;
-			cycleEvery = "1h";
-		};
+    swww = {
+      enable = true;
+      wallpaperDir = ./wallpapers;
+      cycleEvery = "1h";
+    };
 
-		obsidian = {
-			enable = true;
-			opacity = 0.8;
-		};
+    obsidian = {
+      enable = true;
+      opacity = 0.8;
+    };
 
-		firefox = {
-			enable = true;
-			monospaceFont = true;
-		};
+    firefox = {
+      enable = true;
+      monospaceFont = true;
+    };
 
-		directories = {
-			enable = true;
+    directories = {
+      enable = true;
 
-			downloads = "downloads";
-			documents = "random";
-			desktop = null;
-			music = "music";
-			videos = "recordings";
-			extra = [
-				"art"
-				"godot"
-				"github"
-				"minecraft"
-				"backup"
-				"notes"
-			];
-		};
+      downloads = "downloads";
+      documents = "random";
+      desktop = null;
+      music = "music";
+      videos = "recordings";
+      extra = [
+        "art"
+        "godot"
+        "github"
+        "minecraft"
+        "backup"
+        "notes"
+      ];
+    };
 
     widgets.enable = true;
     helix = import ./helix.nix;
     _1password.enable = true;
-		vesktop.enable = true;
-		prismLauncher.enable = true;
+    vesktop.enable = true;
+    prismLauncher.enable = true;
+
+    xremap = {
+      enable = true;
+      config = {
+        modmap = [
+          {
+            name = "Modifications for built-in keyboard";
+            remap.capslock = {
+              held = "leftctrl";
+              alone = "esc";
+            };
+            device.only = "event0";
+          }
+        ];
+      };
+    };
   };
 }

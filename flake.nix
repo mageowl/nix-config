@@ -10,15 +10,15 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
-		hypr-dynamic-cursors = {
-			url = "github:VirtCode/hypr-dynamic-cursors";
-			inputs.hyprland.follows = "hyprland";
-		};
+    hypr-dynamic-cursors = {
+      url = "github:VirtCode/hypr-dynamic-cursors";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     ags = {
-			url = "github:aylur/ags";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+      url = "github:aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     widgets = {
       #url = "github:mageowl/widgets";
       url = "path:/home/owl/github/widgets/";
@@ -36,9 +36,16 @@
       url = "github:oxalica/nil";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # xremap
+    xremap = {
+      url = "github:xremap/nix-flake";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
+  outputs =
+    { nixpkgs, home-manager, ... }@inputs:
     let
       lib = nixpkgs.lib;
       util = import ./modules/util { inherit lib inputs; };
