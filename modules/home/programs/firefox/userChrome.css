@@ -40,3 +40,7 @@ toolbarspring {
 button-group.tools-and-extensions {
 	display: none;
 }
+
+toolbarbutton#tabs-newtab-button {
+	opacity: 0.3;
+}

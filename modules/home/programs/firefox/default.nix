@@ -7,7 +7,18 @@ in {
     programs.firefox = {
       enable = true;
       profiles.${const.username} = {
-        extensions.packages = with addons; [ ublock-origin sponsorblock ];
+        extensions.packages = with addons; [ ublock-origin sponsorblock indie-wiki-buddy ];
+				bookmarks = {
+					force = true;
+					settings = [
+						
+					] ++ (opts.firefox.aliases
+						|> builtins.mapAttrs (name: url: {
+							inherit name url;
+							keyword = name;
+						})
+						|> builtins.attrValues);
+				};
 				settings = {
 					"extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
 					"browser.download.dir" =

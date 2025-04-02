@@ -716,6 +716,7 @@
         "hyprland": "hyprland",
         "nil_ls": "nil_ls",
         "nixpkgs": "nixpkgs_3",
+        "secrets": "secrets",
         "widgets": "widgets",
         "xremap": "xremap"
       }
@@ -739,6 +740,18 @@
         "owner": "oxalica",
         "repo": "rust-overlay",
         "type": "github"
+      }
+    },
+    "secrets": {
+      "locked": {
+        "lastModified": 1743617213,
+        "narHash": "sha256-y3SnWiqIYsqImiL+D8vfAqEU+MOQpIqUE/yrh8fuP7k=",
+        "path": "/home/owl/nix/secrets",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/owl/nix/secrets",
+        "type": "path"
       }
     },
     "systems": {

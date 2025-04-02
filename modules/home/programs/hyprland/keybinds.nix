@@ -1,42 +1,54 @@
-{ config, lib, const, ... }:
-let
+{
+  config,
+  lib,
+  const,
+  ...
+}: let
   opts = config.opts;
   forWorkspaces = fn:
-    builtins.genList (i:
-      let
-        id = builtins.toString (i + 1);
-        # zero should be used as the key to switch to workspace 10
-        key = if id == "10" then "0" else id;
-      in fn id key) 10;
-  vk = key: dir: { inherit key dir; };
-  forVimKeys = fn:
-    (builtins.map ({ key, dir }: fn key dir) [
-      (vk "h" "l")
-      (vk "j" "d")
-      (vk "k" "u")
-      (vk "l" "r")
-    ]);
+    builtins.genList (i: let
+      id = builtins.toString (i + 1);
+      # zero should be used as the key to switch to workspace 10
+      key =
+        if id == "10"
+        then "0"
+        else id;
+    in
+      fn id key) 10;
+  vk = key: dir: {inherit key dir;};
+  forVimKeys = fn: (builtins.map ({
+    key,
+    dir,
+  }:
+    fn key dir) [
+    (vk "h" "l")
+    (vk "j" "d")
+    (vk "k" "u")
+    (vk "l" "r")
+  ]);
 in {
   wayland.windowManager.hyprland.settings = lib.mkIf opts.hyprland.enable {
     "$mod" = opts.hyprland.modifier;
     "$term" = opts.hyprland.terminal;
-      # Exit hyprland by holding Mod+Escape
-		bindo = [ "$mod, Escape, exit" ];
+    # Exit hyprland by holding Mod+Escape
+    bindo = ["$mod, Escape, exit"];
 
-    bind = [
-      # Modify window
-      "$mod, Q, killactive"
-      "$mod SHIFT, Q, killactive"
-      "$mod, T, togglefloating"
-      "$mod, F, fullscreen, 0"
-      "$mod, C, centerwindow"
-      "$mod, N, togglesplit"
-    ] # Switch workspaces
+    bind =
+      [
+        # Modify window
+        "$mod, Q, killactive"
+        "$mod SHIFT, Q, forcekillactive"
+        "$mod, T, togglefloating"
+        "$mod, F, fullscreen, 0"
+        "$mod, C, centerwindow"
+        "$mod, N, togglesplit"
+      ] # Switch workspaces
       ++ forWorkspaces (id: key: "$mod, ${key}, workspace, ${id}")
       # Move window to workspace
       ++ forWorkspaces (id: key: "$mod SHIFT, ${key}, movetoworkspace, ${id}")
       # Navigation
-      ++ forVimKeys (key: dir: "$mod, ${key}, movefocus, ${dir}") ++ forVimKeys
+      ++ forVimKeys (key: dir: "$mod, ${key}, movefocus, ${dir}")
+      ++ forVimKeys
       (key: dir: "$mod SHIFT, ${key}, movewindow, ${dir}")
       # Move workspaces
       ++ forVimKeys
@@ -68,16 +80,16 @@ in {
       ++ opts.hyprland.additionalKeybinds;
 
     # Multimedia keys can be repeated
-		bindr = [
+    bindr = [
       ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 2%+"
       ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
       ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
       ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
       ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
-		];
+    ];
 
     # Move windows with mouse + mod
-    bindm = [ "$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow" ];
+    bindm = ["$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow"];
   };
 }

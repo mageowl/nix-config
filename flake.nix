@@ -2,6 +2,8 @@
   description = "NixOS and Home Manager configuration.";
 
   inputs = {
+    secrets.url = "path:/home/owl/nix/secrets";
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -44,25 +46,26 @@
     };
   };
 
-  outputs =
-    { nixpkgs, home-manager, ... }@inputs:
-    let
-      lib = nixpkgs.lib;
-      util = import ./modules/util { inherit lib inputs; };
-    in
-    {
-      nixosConfigurations.tenebris = util.mkSystem {
-        hostname = "tenebris";
-        username = "owl";
-        system = "x86_64-linux";
-        inherit util;
-      };
-
-      homeConfigurations."owl@tenebris" = util.mkHome {
-        hostname = "tenebris";
-        username = "owl";
-        system = "x86_64-linux";
-        inherit util;
-      };
+  outputs = {
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
+    lib = nixpkgs.lib;
+    util = import ./modules/util {inherit lib inputs;};
+  in {
+    nixosConfigurations.tenebris = util.mkSystem {
+      hostname = "tenebris";
+      username = "owl";
+      system = "x86_64-linux";
+      inherit util;
     };
+
+    homeConfigurations."owl@tenebris" = util.mkHome {
+      hostname = "tenebris";
+      username = "owl";
+      system = "x86_64-linux";
+      inherit util;
+    };
+  };
 }

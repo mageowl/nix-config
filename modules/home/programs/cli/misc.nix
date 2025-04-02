@@ -17,6 +17,7 @@ in {
       bat
       btop
       libnotify
+      tokei
     ];
   };
 }

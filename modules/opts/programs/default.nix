@@ -1,5 +1,8 @@
-{ lib, config, ... }:
 {
+  lib,
+  config,
+  ...
+}: {
   imports = [
     ./hyprland.nix
     ./cli.nix
@@ -35,6 +38,11 @@
         example = true;
         type = lib.types.bool;
       };
+      aliases = lib.mkOption {
+        description = "Adds keywords that jump to a url when entered.";
+        default = {};
+        type = lib.types.attrsOf lib.types.str;
+      };
     };
 
     prismLauncher = {
@@ -49,6 +57,9 @@
 
     _1password.enable = lib.mkEnableOption "1Password";
     vesktop.enable = lib.mkEnableOption "Vesktop";
+    steam.enable = lib.mkEnableOption "Steam";
+    godot.enable = lib.mkEnableOption "Godot Game Engine";
+    aseprite.enable = lib.mkEnableOption "Aseprite editor";
     obsidian = {
       enable = lib.mkEnableOption "Vesktop";
       opacity = lib.mkOption {

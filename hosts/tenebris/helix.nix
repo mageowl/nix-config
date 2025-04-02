@@ -21,6 +21,8 @@
       C-j = "move_visual_line_down";
       C-k = "move_visual_line_up";
       C-l = "move_char_right";
+      C-ret = "open_below";
+      C-S-ret = "open_above";
     };
   };
   themes = {
@@ -42,6 +44,10 @@
       "ui.bufferline".fg = "subtext1";
 
       "variable.other.member" = "lavender";
+      "namespace" = {
+        fg = "lavender";
+        italic = true;
+      };
 
       palette = {
         text = "#cdd6f4";

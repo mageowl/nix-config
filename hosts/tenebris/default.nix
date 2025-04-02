@@ -1,5 +1,6 @@
-{ util, ... }:
-{
+{util, inputs, lib, ...}:
+let secrets = inputs.secrets.hosts.tenebris;
+in {
   opts = {
     user.name = "owen";
     theme = import ./theme.nix util;
@@ -42,10 +43,10 @@
             duration = 7;
             style = "popin 50%";
           };
-          border = util.mkAnimation { duration = 5; };
-          borderangle = util.mkAnimation { duration = 8; };
-          fade = util.mkAnimation { duration = 7; };
-          workspaces = util.mkAnimation { duration = 6; };
+          border = util.mkAnimation {duration = 5;};
+          borderangle = util.mkAnimation {duration = 8;};
+          fade = util.mkAnimation {duration = 7;};
+          workspaces = util.mkAnimation {duration = 6;};
           specialWorkspace = util.mkAnimation {
             duration = 6;
             style = "fade";
@@ -88,6 +89,28 @@
     firefox = {
       enable = true;
       monospaceFont = true;
+      aliases =
+        {
+          "t" = "data:text/html,<div contenteditable style='color:white;font-family:monospace;font-size:1rem'></div>";
+          "canvas/cal" = "https://${secrets.canvasUrl}.instructure.com/calendar";
+        }
+        // (
+          let
+            classes = {
+              "bio" = "548";
+              "eng" = "526";
+              "esp" = "539";
+              "alg" = "543";
+              "hist" = "532";
+            };
+          in classes
+            |> builtins.mapAttrs (name: id: {
+              "canvas/c/${name}" = "https://${secrets.canvasUrl}.instructure.com/courses/${id}";
+              "canvas/c/${name}/a" = "https://${secrets.canvasUrl}.instructure.com/courses/${id}/assignments";
+            })
+            |> builtins.attrValues
+            |> lib.mergeAttrsList
+        );
     };
 
     directories = {
@@ -113,6 +136,9 @@
     _1password.enable = true;
     vesktop.enable = true;
     prismLauncher.enable = true;
+    steam.enable = true;
+    godot.enable = true;
+    aseprite.enable = true;
 
     xremap = {
       enable = true;
