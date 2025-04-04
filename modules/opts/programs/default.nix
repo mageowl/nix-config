@@ -32,12 +32,6 @@
 
     firefox = {
       enable = lib.mkEnableOption "Firefox";
-      monospaceFont = lib.mkOption {
-        description = "Use a monospace font instead of the sans serif one.";
-        default = false;
-        example = true;
-        type = lib.types.bool;
-      };
       aliases = lib.mkOption {
         description = "Adds keywords that jump to a url when entered.";
         default = {};

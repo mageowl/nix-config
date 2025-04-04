@@ -38,9 +38,9 @@ in {
 					:root {
 						--nix-background: rgba(${col.background.rgb}, ${builtins.toString backgroundOpacity});
 						--nix-color: rgb(${col.foreground.rgb});
-						--nix-font: ${builtins.toString fonts.size.browser}px "${if opts.firefox.monospaceFont then fonts.monospace.family else fonts.sansSerif.family}";
+						--nix-font: ${builtins.toString fonts.size.browser}px "${opts.theme.fonts.${opts.theme.fonts.default}.family}";
 						--nix-font-features: ${
-							(if opts.firefox.monospaceFont then fonts.monospace.features else fonts.sansSerif.features)
+							(opts.theme.fonts.${opts.theme.fonts.default}.features)
 								|> builtins.map (f: ''"${f}"'')
 								|> builtins.concatStringsSep ", "
 						};

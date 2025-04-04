@@ -9,5 +9,6 @@
     ./1password.nix
     ./xremap.nix
     ./steam.nix
+    ./auth.nix
   ];
 }

@@ -28,7 +28,7 @@ in {
                 if opts.hyprland.hyprlock.enable
                 then ''
                   echo \
-                  "background
+                  "background {
                   	path = $img
                   	blur_passes = 2
                   }" > /tmp/hyprlock-bg.conf

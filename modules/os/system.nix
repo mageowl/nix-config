@@ -1,10 +1,14 @@
-{ pkgs, const, ... }: {
+{
+  pkgs,
+  const,
+  ...
+}: {
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = const.hostname; # Define your hostname.
-  nix.settings.experimental-features = [ "nix-command" "flakes" "pipe-operators" ];
+  nix.settings.experimental-features = ["nix-command" "flakes" "pipe-operators"];
 
   environment = {
     systemPackages = with pkgs; [
@@ -15,8 +19,8 @@
       neovim
       home-manager
       nodejs_23
-	  unzip
-	  zip
+      unzip
+      zip
     ];
     variables.FLAKE = "/home/${const.username}/nix/";
   };
@@ -24,8 +28,8 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-	# Enable upower as a dependency for widgets
-	services.upower.enable = true;
+  # Enable upower as a dependency for widgets
+  services.upower.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

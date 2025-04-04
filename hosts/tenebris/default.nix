@@ -4,7 +4,6 @@ in {
   opts = {
     user.name = "owen";
     theme = import ./theme.nix util;
-
     hyprland = {
       enable = true;
 
@@ -57,6 +56,13 @@ in {
       plugin.dynamicCursors = {
         enable = true;
       };
+
+      hypridle.enable = true;
+      hyprlock = {
+        enable = true;
+        fingerprint = true;
+        profilePicture = ./profile.png;
+      };
     };
 
     cli = {
@@ -88,7 +94,6 @@ in {
 
     firefox = {
       enable = true;
-      monospaceFont = true;
       aliases =
         {
           "t" = "data:text/html,<div contenteditable style='color:white;font-family:monospace;font-size:1rem'></div>";
