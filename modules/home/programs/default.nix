@@ -1,9 +1,4 @@
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}: let
+{config, ...}: let
   opts = config.opts;
 in {
   imports = [
@@ -19,10 +14,6 @@ in {
   ];
 
   config = {
-    home.packages = with pkgs;
-      (lib.optionals opts.vesktop.enable [vesktop])
-      ++ (lib.optionals opts.obsidian.enable [obsidian])
-      ++ (lib.optionals opts.godot.enable [godot])
-      ++ (lib.optionals opts.aseprite.enable [aseprite]);
+    home.packages = opts.programs;
   };
 }

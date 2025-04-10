@@ -14,7 +14,8 @@
         then "0"
         else id;
     in
-      fn id key) 10;
+      fn id key)
+    10;
   vk = key: dir: {inherit key dir;};
   forVimKeys = fn: (builtins.map ({
     key,
@@ -75,6 +76,10 @@ in {
         ",XF86AudioNext, exec, playerctl next"
         ",XF86AudioPlay, exec, playerctl play-pause"
         ",XF86AudioPrev, exec, playerctl prev"
+      ])
+      # Hyprlock
+      ++ (lib.optionals opts.hyprland.hyprlock.enable [
+        "$mod, P, exec, hyprlock"
       ])
       # User-defined keybinds
       ++ opts.hyprland.additionalKeybinds;

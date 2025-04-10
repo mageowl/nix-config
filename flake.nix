@@ -2,8 +2,6 @@
   description = "NixOS and Home Manager configuration.";
 
   inputs = {
-    secrets.url = "path:/home/owl/nix/secrets";
-
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -44,6 +42,9 @@
       url = "github:xremap/nix-flake";
       inputs.hyprland.follows = "hyprland";
     };
+
+    # secret variables that shouldn't go on github.
+    secrets.url = "path:/home/owl/nix/secrets";
   };
 
   outputs = {

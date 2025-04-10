@@ -8,6 +8,7 @@
 in {
   config = lib.mkIf opts.cli.misc.enable {
     home.packages = with pkgs; [
+      live-server
       ripgrep
       gh
       killall

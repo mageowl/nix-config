@@ -1,4 +1,4 @@
-{util, inputs, lib, ...}:
+{util, inputs, lib, pkgs, ...}:
 let secrets = inputs.secrets.hosts.tenebris;
 in {
   opts = {
@@ -96,8 +96,11 @@ in {
       enable = true;
       aliases =
         {
-          "t" = "data:text/html,<div contenteditable style='color:white;font-family:monospace;font-size:1rem'></div>";
+          "t" = "data:text/html,<div contenteditable style='color:white;font-family:monospace;font-size:1rem;outline:none;max-width:1500px;margin:24px auto;'></div>";
           "canvas/cal" = "https://${secrets.canvasUrl}.instructure.com/calendar";
+          "dts/slides" = "https://docs.google.com/presentation/u/1";
+          "dts/docs" = "https://docs.google.com/document/u/1";
+          "dts/chat" = "https://chat.google.com/u/1";
         }
         // (
           let
@@ -136,14 +139,22 @@ in {
       ];
     };
 
-    widgets.enable = true;
+    widgets = {
+      enable = true;
+      lowBattery = 50;
+    };
     helix = import ./helix.nix;
-    _1password.enable = true;
-    vesktop.enable = true;
+
+    programs = with pkgs; [
+      vesktop
+      obsidian
+      godot
+      blockbench
+      aseprite
+      fontforge-gtk
+    ];
     prismLauncher.enable = true;
-    steam.enable = true;
-    godot.enable = true;
-    aseprite.enable = true;
+    _1password.enable = true;
 
     xremap = {
       enable = true;
@@ -154,6 +165,7 @@ in {
             remap.capslock = {
               held = "leftctrl";
               alone = "esc";
+              alone_timeout_millis = 500;
             };
             device.only = "event0";
           }

@@ -49,11 +49,14 @@
       };
     };
 
+    programs = lib.mkOption {
+      description = "Extra packages to add.";
+      default = [];
+    };
+
     _1password.enable = lib.mkEnableOption "1Password";
-    vesktop.enable = lib.mkEnableOption "Vesktop";
     steam.enable = lib.mkEnableOption "Steam";
-    godot.enable = lib.mkEnableOption "Godot Game Engine";
-    aseprite.enable = lib.mkEnableOption "Aseprite editor";
+
     obsidian = {
       enable = lib.mkEnableOption "Vesktop";
       opacity = lib.mkOption {

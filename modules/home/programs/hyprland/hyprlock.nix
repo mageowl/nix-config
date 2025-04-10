@@ -23,7 +23,7 @@ in {
 
                 font_family = font.family + " ExtraBold Italic";
                 font_size = 96;
-                color = "rgba(${opts.theme.col.foreground.rgb}, 0.2)";
+                color = "rgba(${opts.theme.col.foreground.rgb}, 0.3)";
 
                 position = "0, -256";
                 halign = "center";

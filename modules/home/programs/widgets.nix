@@ -84,5 +84,36 @@ in {
         '';
       };
     };
+
+    systemd.user = lib.mkIf (opts.widgets.lowBattery != null) (
+      let
+        inherit (builtins) toString;
+        desc = "emit notification if battery is below ${toString opts.widgets.lowBattery}%";
+      in {
+        services.low_battery = {
+          Unit.Description = desc;
+          Service = {
+            Type = "oneshot";
+            ExecStart = pkgs.writers.writeFish "low_battery_notification" ''
+              if test \( (cat /sys/class/power_supply/BAT1/capacity) -le ${toString opts.widgets.lowBattery} \) \
+                -a \( (cat /sys/class/power_supply/BAT1/status) = "Discharging" \)
+
+                notify-send "Low battery" \
+                  "Your Framework will sleep soon unless plugged into a power outlet" \
+                  --icon battery-0-symbolic
+              end
+            '';
+          };
+          Install.WantedBy = ["default.target"];
+        };
+        timers.low_battery = {
+          Unit.Description = desc;
+          Timer = {
+            Unit = "low_battery.service";
+            OnUnitActiveSec = "1m";
+          };
+        };
+      }
+    );
   };
 }
