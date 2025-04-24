@@ -10,6 +10,7 @@ in {
       exec-once =
         []
         ++ (lib.optionals opts.hyprland.hypridle.enable ["hypridle"])
+        ++ (lib.optionals opts.hyprland.waycorner.enable ["waycorner"])
         ++ (lib.optionals opts.swww.enable ["swww-daemon"])
         ++ (lib.optionals (opts.swww.enable && opts.swww.cycleEvery != null) ["systemd start --user cycle_wallpaper"])
         ++ (lib.optionals opts.widgets.enable ["ags run"])

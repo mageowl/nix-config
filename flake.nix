@@ -22,7 +22,6 @@
     widgets = {
       #url = "github:mageowl/widgets";
       url = "path:/home/owl/github/widgets/";
-      flake = false;
     };
 
     # firefox addons

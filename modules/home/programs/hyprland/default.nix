@@ -19,6 +19,7 @@ in {
     ./plugins.nix
     ./hypridle.nix
     ./hyprlock.nix
+    ./waycorner.nix
   ];
 
   config = lib.mkIf opts.hyprland.enable {

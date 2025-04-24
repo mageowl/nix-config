@@ -39,7 +39,7 @@ in {
       font = opts.theme.fonts.${opts.theme.fonts.default};
     in {
       "ags" = {
-        source = "${inputs.widgets}";
+        source = inputs.widgets.packages.${const.system}.noConfig;
         recursive = true;
       };
       "ags/scss/vars.scss" = {
@@ -74,14 +74,11 @@ in {
           }
         '';
       };
-      "ags/config.ts" = {
-        text = lib.mkForce ''
-          import Config from "./util/confType";
-
-          export default {
-            margin: ${toString opts.theme.padding.big},
-          } as Config;
-        '';
+      "ags/config.json" = {
+        force = true;
+        text = builtins.toJSON {
+          margin = opts.theme.padding.big;
+        };
       };
     };
 
@@ -112,6 +109,7 @@ in {
             Unit = "low_battery.service";
             OnUnitActiveSec = "1m";
           };
+          Install.WantedBy = ["timers.target"];
         };
       }
     );

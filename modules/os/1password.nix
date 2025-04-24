@@ -1,5 +1,15 @@
-{ config, lib, pkgs, const, ... }: {
-	config = lib.mkIf config.opts._1password.enable {
-		users.users.${const.username}.packages = [ pkgs._1password-gui ];
-	};
+{
+  config,
+  lib,
+  pkgs,
+  const,
+  ...
+}: {
+  config = lib.mkIf config.opts._1password.enable {
+    programs._1password.enable = true;
+    programs._1password-gui = {
+      enable = true;
+      polkitPolicyOwners = [const.username];
+    };
+  };
 }

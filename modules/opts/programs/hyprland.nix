@@ -197,6 +197,41 @@
         type = lib.types.bool;
       };
     };
+    waycorner = let
+      corner = location: {
+        enable = lib.mkEnableOption "corner";
+        onEnter = lib.mkOption {
+          description = "Command to run when mouse enters the corner";
+          default = [];
+          example = ["notify-send" "enter"];
+          type = lib.types.listOf lib.types.str;
+        };
+        onExit = lib.mkOption {
+          description = "Command to run when mouse exits the corner";
+          default = [];
+          example = ["notify-send" "enter"];
+          type = lib.types.listOf lib.types.str;
+        };
+        size = lib.mkOption {
+          description = "How big to make the hot corner.";
+          default = 10;
+          example = 10;
+          type = lib.types.int;
+        };
+        timeout = lib.mkOption {
+          description = "Timeout, in milliseconds.";
+          default = 1000;
+          example = 250;
+          type = lib.types.int;
+        };
+      };
+    in {
+      enable = lib.mkEnableOption "Hot corners using waycorner";
+      bottomLeft = corner "bottom_left";
+      bottomRight = corner "bottom_right";
+      topLeft = corner "top_left";
+      topRight = corner "top_right";
+    };
 
     hypridle = {
       enable = lib.mkEnableOption "Hypridle";
@@ -219,6 +254,7 @@
         type = lib.types.int;
       };
     };
+
     hyprlock = {
       enable = lib.mkEnableOption "Hyprlock";
       fingerprint = lib.mkEnableOption "fingerprint authentication";

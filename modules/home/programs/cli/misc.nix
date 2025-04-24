@@ -19,6 +19,7 @@ in {
       btop
       libnotify
       tokei
+      mdbook
     ];
   };
 }

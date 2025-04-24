@@ -10,9 +10,7 @@
       bufferline = "always";
 
       end-of-line-diagnostics = "hint";
-      inline-diagnostics = {
-        cursor-line = "hint";
-      };
+      inline-diagnostics.cursor-line = "hint";
 
       indent-guides.render = true;
     };
@@ -36,7 +34,7 @@
       "ui.menu.selected" = {
         bg = "surface1";
         fg = "text";
-        bold = true;
+        modifiers = ["bold"];
       };
       "ui.help".fg = "overlay2";
       "ui.statusline".fg = "subtext1";
@@ -46,7 +44,7 @@
       "variable.other.member" = "lavender";
       "namespace" = {
         fg = "lavender";
-        italic = true;
+        modifiers = ["italic"];
       };
 
       palette = {
@@ -69,6 +67,10 @@
         ];
       };
       auto-format = true;
+    }
+    {
+      name = "markdown";
+      soft-wrap.enable = true;
     }
   ];
 }

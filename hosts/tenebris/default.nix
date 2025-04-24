@@ -57,6 +57,13 @@ in {
         enable = true;
       };
 
+      waycorner = {
+        enable = true;
+        bottomLeft = {
+          enable = true;
+          onEnter = ["systemctl" "sleep"];
+        };
+      };
       hypridle.enable = true;
       hyprlock = {
         enable = true;
@@ -141,7 +148,7 @@ in {
 
     widgets = {
       enable = true;
-      lowBattery = 50;
+      lowBattery = 10;
     };
     helix = import ./helix.nix;
 
@@ -154,6 +161,7 @@ in {
       fontforge-gtk
     ];
     prismLauncher.enable = true;
+    steam.enable = true;
     _1password.enable = true;
 
     xremap = {
