@@ -10,5 +10,6 @@
     ./xremap.nix
     ./steam.nix
     ./auth.nix
+    ./joycond.nix
   ];
 }

@@ -20,6 +20,8 @@ in {
       libnotify
       tokei
       mdbook
+      deno
+      cava
     ];
   };
 }

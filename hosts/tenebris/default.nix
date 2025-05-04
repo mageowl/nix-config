@@ -180,5 +180,6 @@ in {
         ];
       };
     };
+    joycond.enable = true;
   };
 }

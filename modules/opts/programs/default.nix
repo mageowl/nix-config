@@ -81,5 +81,7 @@
         type = lib.types.nullOr lib.types.str;
       };
     };
+
+    joycond.enable = lib.mkEnableOption "joycond";
   };
 }

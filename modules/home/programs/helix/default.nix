@@ -1,9 +1,11 @@
-{ config, lib, ... }:
-let
-  cfg = config.opts;
-in
 {
-  imports = [ ./lsp.nix ];
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.opts;
+in {
+  imports = [./lsp.nix];
 
   config = lib.mkIf cfg.helix.enable {
     programs.helix = {
@@ -11,7 +13,10 @@ in
       defaultEditor = true;
       settings = cfg.helix.settings;
       themes = cfg.helix.themes;
-      languages.language = cfg.helix.languages;
+      languages = {
+        language = cfg.helix.languages;
+        language-server = cfg.helix.lsp;
+      };
     };
   };
 }

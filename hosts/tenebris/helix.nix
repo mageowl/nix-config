@@ -72,5 +72,27 @@
       name = "markdown";
       soft-wrap.enable = true;
     }
+    {
+      name = "typescript";
+      roots = ["deno.json" "deno.jsonc" "package.json"];
+      language-servers = ["deno-lsp"];
+      auto-format = true;
+    }
   ];
+  lsp.deno-lsp = {
+    command = "deno";
+    args = ["lsp"];
+    config.deno = {
+      enable = true;
+      unstable = true;
+      suggest.imports.hosts = {"https://deno.land" = true;};
+
+      inlayHints.parameterNames.enabled = "all";
+      inlayHints.parameterTypes.enabled = true;
+      inlayHints.variableTypes.enabled = true;
+      inlayHints.propertyDeclarationTypes.enabled = true;
+      inlayHints.functionLikeReturnTypes.enabled = true;
+      inlayHints.enumMemberValues.enabled = true;
+    };
+  };
 }

@@ -71,12 +71,6 @@ in {
         ''$mod, G, exec, grim -g "$(slurp)" "/home/${const.username}/screenshots/$(date +'screenshot_%Y-%m-%d_%H:%M:%S').png"''
         ''$mod SHIFT, G, exec, grim -g "$(slurp)" - | wl-copy''
       ])
-      # Playerctl keybinds
-      ++ (lib.optionals opts.cli.misc.enable [
-        ",XF86AudioNext, exec, playerctl next"
-        ",XF86AudioPlay, exec, playerctl play-pause"
-        ",XF86AudioPrev, exec, playerctl prev"
-      ])
       # Hyprlock
       ++ (lib.optionals opts.hyprland.hyprlock.enable [
         "$mod, P, exec, hyprlock"
@@ -85,13 +79,19 @@ in {
       ++ opts.hyprland.additionalKeybinds;
 
     # Multimedia keys can be repeated
-    bindr = [
+    bindrl = [
       ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 2%+"
       ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
       ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
       ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
       ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+    ];
+    # Playerctl keybinds in lock screen
+    bindl = lib.optionals opts.cli.misc.enable [
+      ",XF86AudioNext, exec, playerctl next"
+      ",XF86AudioPlay, exec, playerctl play-pause"
+      ",XF86AudioPrev, exec, playerctl prev"
     ];
 
     # Move windows with mouse + mod

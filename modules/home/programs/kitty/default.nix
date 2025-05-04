@@ -28,7 +28,7 @@ in {
 				# Set window size for floating windows
 				initial_window_width = 640;
 				initial_window_height = 400;
-				remeber_window_size = "no";
+				remember_window_size = "no";
 
 				# Default modifier
 				kitty_mod = opts.kitty.modifier;
