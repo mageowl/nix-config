@@ -18,11 +18,11 @@
       wl-clipboard
       neovim
       home-manager
-      nodejs_23
+      nodejs_latest
       unzip
       zip
     ];
-    variables.FLAKE = "/home/${const.username}/nix/";
+    variables.NH_FLAKE = "/home/${const.username}/nix/";
   };
 
   # Allow unfree packages

@@ -1,5 +1,11 @@
-{util, inputs, lib, pkgs, ...}:
-let secrets = inputs.secrets.hosts.tenebris;
+{
+  util,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: let
+  secrets = inputs.secrets.hosts.tenebris;
 in {
   opts = {
     user.name = "owen";
@@ -118,7 +124,8 @@ in {
               "alg" = "543";
               "hist" = "532";
             };
-          in classes
+          in
+            classes
             |> builtins.mapAttrs (name: id: {
               "canvas/c/${name}" = "https://${secrets.canvasUrl}.instructure.com/courses/${id}";
               "canvas/c/${name}/a" = "https://${secrets.canvasUrl}.instructure.com/courses/${id}/assignments";
@@ -159,6 +166,7 @@ in {
       blockbench
       aseprite
       fontforge-gtk
+      blender
     ];
     prismLauncher.enable = true;
     steam.enable = true;
