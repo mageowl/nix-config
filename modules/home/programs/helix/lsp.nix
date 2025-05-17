@@ -10,5 +10,6 @@
     typescript-language-server
     vscode-langservers-extracted
     marksman
+    lua-language-server
   ];
 }

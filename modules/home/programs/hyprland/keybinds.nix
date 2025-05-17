@@ -91,7 +91,7 @@ in {
     bindl = lib.optionals opts.cli.misc.enable [
       ",XF86AudioNext, exec, playerctl next"
       ",XF86AudioPlay, exec, playerctl play-pause"
-      ",XF86AudioPrev, exec, playerctl prev"
+      ",XF86AudioPrev, exec, playerctl previous"
     ];
 
     # Move windows with mouse + mod

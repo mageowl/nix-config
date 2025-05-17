@@ -5,14 +5,14 @@
 }: let
   cfg = config.opts;
 in {
-  imports = [./lsp.nix];
+  imports = [./lsp.nix ./theme.nix];
 
   config = lib.mkIf cfg.helix.enable {
     programs.helix = {
       enable = true;
       defaultEditor = true;
-      settings = cfg.helix.settings;
-      themes = cfg.helix.themes;
+
+      settings = {theme = "nix";} // cfg.helix.settings;
       languages = {
         language = cfg.helix.languages;
         language-server = cfg.helix.lsp;

@@ -22,6 +22,7 @@ in {
       mdbook
       deno
       cava
+      lua
     ];
   };
 }

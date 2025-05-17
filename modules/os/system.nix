@@ -14,6 +14,7 @@
     systemPackages = with pkgs; [
       git
       clang
+      gcc
       rustup
       wl-clipboard
       neovim

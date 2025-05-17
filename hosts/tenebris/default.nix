@@ -96,13 +96,13 @@ in {
 
     swww = {
       enable = true;
-      wallpaperDir = ./wallpapers;
+      wallpaperDir = ./wallpapers/purple;
       cycleEvery = "1h";
     };
 
     obsidian = {
       enable = true;
-      opacity = 0.8;
+      opacity = 0.9;
     };
 
     firefox = {
@@ -167,6 +167,7 @@ in {
       aseprite
       fontforge-gtk
       blender
+      localsend
     ];
     prismLauncher.enable = true;
     steam.enable = true;
