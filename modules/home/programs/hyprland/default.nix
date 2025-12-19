@@ -40,6 +40,7 @@ in {
         misc.disable_hyprland_logo = true;
         misc.focus_on_activate = true;
         misc.enable_anr_dialog = false;
+        debug.disable_logs = false;
       };
     };
   };

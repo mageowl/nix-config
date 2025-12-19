@@ -3,6 +3,9 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs-old = {
+    #   url = "github:nixos/nixpkgs/05bbf675397d5366259409139039af8077d695ce";
+    # };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -19,9 +22,12 @@
       url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    widgets = {
-      #url = "github:mageowl/widgets";
-      url = "path:/home/owl/github/widgets/";
+    # widgets = {
+    #   #url = "github:mageowl/widgets";
+    #   url = "path:/home/owl/github/widgets/";
+    # };
+    nigits = {
+      url = "github:mageowl/nigits";
     };
 
     # firefox addons
@@ -40,6 +46,12 @@
     xremap = {
       url = "github:xremap/nix-flake";
       inputs.hyprland.follows = "hyprland";
+    };
+
+    # use my helix fork
+    helix = {
+      url = "github:mageowl/helix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # secret variables that shouldn't go on github.

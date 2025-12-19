@@ -15,7 +15,7 @@ util: {
     blue = util.hex "7b94e2";
     magenta = util.hex "b681ca";
     cyan = util.hex "00b0a3";
-    white = util.hex "68528e";
+    white = util.hex "655682";
     brightBlack = util.hex "3f2c5e";
     brightRed = util.hex "ffb4b5";
     brightGreen = util.hex "bedb93";

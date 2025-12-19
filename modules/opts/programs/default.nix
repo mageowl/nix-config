@@ -56,6 +56,8 @@
 
     _1password.enable = lib.mkEnableOption "1Password";
     steam.enable = lib.mkEnableOption "Steam";
+    blender.enable = lib.mkEnableOption "Blender";
+    dungeondraft.enable = lib.mkEnableOption "Dungeondraft";
 
     obsidian = {
       enable = lib.mkEnableOption "Vesktop";

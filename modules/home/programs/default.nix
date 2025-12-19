@@ -10,6 +10,8 @@ in {
     ./fish
     ./widgets.nix
     ./swww.nix
+    ./blender.nix
+    ./dungeondraft.nix
     ./prismLauncher.nix
   ];
 

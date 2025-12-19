@@ -63,13 +63,23 @@ in {
         enable = true;
       };
 
-      waycorner = {
-        enable = true;
-        bottomLeft = {
-          enable = true;
-          onEnter = ["systemctl" "sleep"];
-        };
-      };
+      additionalWindowRules = [
+        "float, title:Picture-in-Picture, class:firefox"
+        "move 100%-80 100%-80, title:Picture-in-Picture, class:firefox"
+        "pin, title:Picture-in-Picture, class:firefox"
+      ];
+
+      additionalKeybinds = [
+        "SUPER, F3, pass, class:^(com\\.obsproject\\.Studio)$"
+      ];
+
+      # waycorner = {
+      #   enable = true;
+      #   bottomLeft = {
+      #     enable = true;
+      #     onEnter = ["systemctl" "sleep"];
+      #   };
+      # };
       hypridle.enable = true;
       hyprlock = {
         enable = true;
@@ -82,7 +92,7 @@ in {
       enableAll = true;
 
       git = {
-        email = "32573897+mageowl@users.noreply.github.com";
+        email = "owen@mageowl.dev";
         name = "mageowl";
         lazygit.enable = true;
       };
@@ -156,6 +166,10 @@ in {
     widgets = {
       enable = true;
       lowBattery = 10;
+      visualizer = {
+        enable = false;
+        bars = 24;
+      };
     };
     helix = import ./helix.nix;
 
@@ -166,12 +180,17 @@ in {
       blockbench
       aseprite
       fontforge-gtk
-      blender
       localsend
+      jetbrains.idea-community
+      android-studio
+      obs-studio
+      zoom-us
     ];
     prismLauncher.enable = true;
     steam.enable = true;
     _1password.enable = true;
+    blender.enable = true;
+    dungeondraft.enable = true;
 
     xremap = {
       enable = true;

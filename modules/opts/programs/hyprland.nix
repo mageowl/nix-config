@@ -170,6 +170,12 @@
       description = "Additional keybindings for hyprland.";
       type = lib.types.listOf lib.types.str;
     };
+    additionalWindowRules = lib.mkOption {
+      default = [];
+      example = ["float, class:kitty, title:kitty"];
+      description = "Additional window rules for hyprland.";
+      type = lib.types.listOf lib.types.str;
+    };
 
     autostart = lib.mkOption {
       description = "Additional commands to run when starting Hyprland.";

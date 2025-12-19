@@ -8,21 +8,38 @@
 in {
   config = lib.mkIf opts.cli.misc.enable {
     home.packages = with pkgs; [
-      live-server
+      # Basic commandline utils
       ripgrep
-      gh
       killall
-      brightnessctl
-      libqalculate
-      playerctl
+      libnotify # notify-send
       bat
-      btop
-      libnotify
-      tokei
+      sad
+      fzf
+      fd
+      glib # launch applications with gio
+      ffmpeg
+
+      # Development utilities
+      live-server
+      gh
+      codeberg-cli
       mdbook
       deno
-      cava
       lua
+      hyperfine
+
+      # Hardware control
+      brightnessctl
+      playerctl
+      speedtest-rs
+
+      # Cli applications
+      libqalculate
+      btop
+      tokei
+      cava
+      dust
+      porsmo
     ];
   };
 }

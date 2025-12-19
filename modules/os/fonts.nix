@@ -1,8 +1,9 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   fonts.enableDefaultPackages = true;
   fonts.packages = with pkgs; [
-		jetbrains-mono
-		google-fonts
-		nerd-fonts.symbols-only
-	];
+    jetbrains-mono
+    google-fonts
+    # monaspace
+    nerd-fonts.symbols-only
+  ];
 }

@@ -1,6 +1,8 @@
 {
   config,
   lib,
+  inputs,
+  const,
   ...
 }: let
   cfg = config.opts;
@@ -10,6 +12,7 @@ in {
   config = lib.mkIf cfg.helix.enable {
     programs.helix = {
       enable = true;
+      package = inputs.helix.packages.${const.system}.helix;
       defaultEditor = true;
 
       settings = {theme = "nix";} // cfg.helix.settings;

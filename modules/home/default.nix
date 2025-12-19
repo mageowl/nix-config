@@ -1,5 +1,5 @@
-{ const, ... }: {
-  imports = [ ./programs ./fonts.nix ./cursor.nix ./directories.nix ];
+{const, ...}: {
+  imports = [./programs ./fonts.nix ./cursor.nix ./directories.nix ./scripts.nix];
 
   home.username = const.username;
   home.homeDirectory = "/home/${const.username}";
@@ -7,5 +7,5 @@
 
   programs.home-manager.enable = true;
 
-	nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 }

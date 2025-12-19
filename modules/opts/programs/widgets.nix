@@ -13,5 +13,14 @@
       example = 10;
       type = lib.types.nullOr lib.types.int;
     };
+    visualizer = {
+      enable = lib.mkEnableOption "Cava visualizer widget";
+      bars = lib.mkOption {
+        description = "Number of bars to display";
+        default = 20;
+        example = 20;
+        type = lib.types.int;
+      };
+    };
   };
 }

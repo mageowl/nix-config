@@ -6,20 +6,28 @@
       cursor-shape.insert = "bar";
       color-modes = true;
       bufferline = "always";
+      bufferline-directories = "smart";
 
       end-of-line-diagnostics = "hint";
       inline-diagnostics.cursor-line = "hint";
 
       indent-guides.render = true;
-      lsp.display-inlay-hints = true;
+      # lsp.display-inlay-hints = true;
     };
-    keys.insert = {
-      C-h = "move_char_left";
-      C-j = "move_visual_line_down";
-      C-k = "move_visual_line_up";
-      C-l = "move_char_right";
-      C-ret = "open_below";
-      C-S-ret = "open_above";
+    keys = {
+      insert = {
+        C-h = "move_char_left";
+        C-j = "move_visual_line_down";
+        C-k = "move_visual_line_up";
+        C-l = "move_char_right";
+        C-ret = "open_below";
+        C-S-ret = "open_above";
+        C-space = "code_action";
+      };
+      normal = {
+        C-del = [":sh rm %{buffer_name}" ":buffer-close"];
+        space.i = ":toggle lsp.display-inlay-hints";
+      };
     };
   };
   languages = [
