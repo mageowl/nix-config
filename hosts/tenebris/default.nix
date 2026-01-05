@@ -14,16 +14,16 @@ in {
       enable = true;
 
       monitors = [
-        (util.mkMonitor {
+        {
           name = "eDP-1";
-          position = "2560x240";
+          position = [2560 240];
           scale = 2;
-        })
-        (util.mkMonitor {
+        }
+        {
           name = "DP-2";
-          position = "0x0";
+          position = [0 0];
           scale = 1.5;
-        })
+        }
       ];
 
       blur = {
